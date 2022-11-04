@@ -1,0 +1,12 @@
+coefficent of variation python / odchylenie przez średnią 
+sciPy.stats.variation   
+dla każdego kanału 
+
+dla współczynnika zmienności 
+
+[['Data/Variation\\Controls_CE1.npy_coefficient_of_variation.npy', 'Data/Variation\\Controls_OE1.npy_coefficient_of_variation.npy'],
+ ['Data/Variation\\Controls_CE2.npy_coefficient_of_variation.npy', 'Data/Variation\\Controls_OE2.npy_coefficient_of_variation.npy'],
+ ['Data/Variation\\Depression_CE1.npy_coefficient_of_variation.npy', 'Data/Variation\\Depression_OE1.npy_coefficient_of_variation.npy'],
+ ['Data/Variation\\Depression_CE2.npy_coefficient_of_variation.npy', 'Data/Variation\\Depression_OE2.npy_coefficient_of_variation.npy'],
+ ['Data/Variation\\Remission_CE1.npy_coefficient_of_variation.npy', 'Data/Variation\\Remission_OE1.npy_coefficient_of_variation.npy'],
+ ['Data/Variation\\Remission_CE2.npy_coefficient_of_variation.npy', 'Data/Variation\\Remission_OE2.npy_coefficient_of_variation.npy']]
