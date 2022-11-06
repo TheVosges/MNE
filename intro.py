@@ -155,17 +155,18 @@ def avrWaveletPower(eeg,fa,fc,plotFigure,normByVar,myMap,range):
                                      vmax=range[1], names= ch_names,show_names=True,cmap=myMap)
         return  cwtList
  #%%
-infoLoc="/Users/mirek/Dropbox/RobertK/PMR/bazaEEG.xls"
-eegInfo=getEEGInfo(infoLoc,2,'CE1')
-print(eegInfo)
-eeg=readEEGSegment(eegInfo)
+if __name__ == "__main__":
+    infoLoc="/Users/mirek/Dropbox/RobertK/PMR/bazaEEG.xls"
+    eegInfo=getEEGInfo(infoLoc,2,'CE1')
+    print(eegInfo)
+    eeg=readEEGSegment(eegInfo)
 
-#%%
+    #%%
 
-from matplotlib import cm
-test=avrWaveletPower(eeg,10,1.8,True,False,cm.jet,[])
+    from matplotlib import cm
+    test=avrWaveletPower(eeg,10,1.8,True,False,cm.jet,[])
 
-#%%
+    #%%
 
 
 

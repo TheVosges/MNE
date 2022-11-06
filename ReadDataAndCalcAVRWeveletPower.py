@@ -95,7 +95,9 @@ def readEEGSegment(segmentDetails):
 
     eeg.set_montage('standard_1020')
     mne.set_eeg_reference(eeg, ref_channels='average')
-    # eeg.plot(title = "EDF info")
+    eeg.plot(title = "EDF info")
+
+
     return eeg
 
 
@@ -166,8 +168,8 @@ def avrWaveletPower(eeg, fa, fc, plotFigure, normByVar, myMap, range):
     ax_y_height = 0.5
     cbar_ax = fig.add_axes([ax_x_start, ax_y_start, ax_x_width, ax_y_height])
     clb = fig.colorbar(im, cax=cbar_ax)
-    clb.ax.set_title("Tytuł", fontsize=10)
-    # plt.show()
+    clb.ax.set_title("Napięcie [μV]", fontsize=10)
+    plt.show()
     return cwtList
 
 

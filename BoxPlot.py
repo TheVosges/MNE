@@ -1,42 +1,48 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
-sensors = ["Fp2", "F8", "T4", "T6", "O2", "Fp1", "F7", "T3", "T5", "O1",
-           "F4", "C4", "P4", "F3", "C3", "P3", "Fpz", "Fz", "Cz", "Pz", "Oz"]
+#            0      1     2     3    4      5     6      7      8    9    10    11    12    13    14    15    16     17    18    19   20
+sensors = ["Fp2", "F8", "T4", "T6", "O2", "Fp1", "F7", "T3", "T5", "O1", "F4", "C4", "P4", "F3", "C3", "P3", "Fpz", "Fz", "Cz", "Pz", "Oz"]
+includeEEG = [6, 7, 8, 1, 2, 3, 9, 4, 20]
+included = []
+for sensor in includeEEG:
+    included.append(sensors[sensor])
 
 def filterDataDiff(npArray1, npArray2):
-
+    print(npArray1.shape)
     data = []
+
+    #Stworzenie miejsca na dane dla każdego sensora
     for name in sensors:
         data.append([])
 
+    #Dodanie wartości z pierwszej tabeli do tabeli posortowanych sensorów
     for person in npArray1:
         i = 0
         for sensor in person:
             data[i].append(sensor)
             i+=1
-    print(data)
-    j = 0
+
+    pomiar_osoby = 0
     for person in npArray2:
-        i = 0
+        odprowadzenie = 0
         for sensor in person:
-            data[i][j] = data[i][j] - sensor
-            # data[i][j] = ((data[i][j] - sensor)/data[i][j])*100
-            i+=1
-        j += 1
+            data[odprowadzenie][pomiar_osoby] = data[odprowadzenie][pomiar_osoby] - sensor
+            odprowadzenie+=1
+        pomiar_osoby += 1
 
     return data
 
-def sortData(directory):
+def sortData(directory, fa, fc):
     files = []
     for filename in os.listdir(directory):
-        if filename.endswith(".npy"):
+        if filename.endswith("_fc" + str(fc) + "_fa" + str(fa) + ".npy"):
             filePath = os.path.join(directory, filename)
             files.append(filePath)
         else:
             continue
     files.sort()
+    print(files)
     filesSorted = []
     i = 0
     temp = []
@@ -62,6 +68,7 @@ def sortData(directory):
 
 def drawPlots(dataSet):
     fig, axs = plt.subplots(3, 2)
+
 
     axs[0, 0].boxplot(dataSet[0], showmeans=True)
     axs[0, 0].set_title('Controls CE1 - OE1')
@@ -95,11 +102,12 @@ def drawPlots(dataSet):
 
     plt.show()
 
-if __name__ == "__main__":
-    filesSorted = sortData("Data/Raw/")
 
+if __name__ == "__main__":
+    filesSorted = sortData("Data/Raw/", 10, 1.8)
     dataSet = []
     for fileNames in filesSorted:
+        print(fileNames)
         dataSet.append(filterDataDiff(np.load(fileNames[0]), np.load(fileNames[1])))
 
     drawPlots(dataSet)
