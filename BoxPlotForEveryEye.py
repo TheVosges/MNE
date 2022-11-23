@@ -162,6 +162,7 @@ if __name__ == "__main__":
                 for file in fileNames:
                     print("{}_fa{}_fc{}".format(file,fa,fc))
                     dataSet.append(filterDataBySensor(np.load(file)))
+            np.save("Data/Sensors/" + "sorted_by_sensors_fa{}_fc{}".format(fa, fc), dataSet)
 
             #DataSet to lista
             #      sensorów dla każdego pliku (CE1 CE2 OE1 OE2) * (Controls Depression Remission)

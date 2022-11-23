@@ -1,0 +1,22 @@
+0  : Controls_CE1
+1  : Controls_OE1
+2  : Controls_CE2
+3  : Controls_OE2
+4  : Depression_CE1
+5  : Depression_OE1
+6  : Depression_CE2
+7  : Depression_OE2
+8  : Remission_CE1
+9  : Remission_OE1
+10 : Remission_CE2
+11 : Remission_OE2
+
+Testy:
+1: CCE1 : DCE1
+2: DCE1 : RCE1
+3: CCE2 : DCE2
+4: DCE2 : RCE2
+5: COE1 : DOE1
+6: DOE1 : ROE1
+7: COE2 : DOE2
+4: DOE2 : ROE2
